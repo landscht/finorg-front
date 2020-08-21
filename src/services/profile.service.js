@@ -1,10 +1,11 @@
 import axios from "axios";
+import ApiService from './api.service';
 
 export default {
 
     createProfile(profile) {
         return axios
-            .post( 'http://localhost:8080/profile', {
+            .post( `${ApiService.API_URL}profile`, {
                 firstname: profile.firstname,
                 lastname: profile.lastname,
                 birthday: profile.birthday
