@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- stable
+deploy:
+  provider: heroku
+  app: finorg-front
+  api_key: $HEROKU_TOKEN
+cache:
+  directories:
+  - node_modules
+script:
+- npm run build
