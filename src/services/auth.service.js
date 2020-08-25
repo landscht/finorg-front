@@ -7,7 +7,7 @@ class AuthService {
 
     login(user) {
         return axios
-            .post(ApiService.API_URL + 'signin', {
+            .post(ApiService.API_URL + 'api/auth/signin', {
                 username: user.username,
                 password: user.password
             })
@@ -26,7 +26,7 @@ class AuthService {
     }
 
     register(user) {
-        return axios.post(ApiService.API_URL + 'signup', {
+        return axios.post(ApiService.API_URL + 'api/auth/signup', {
             username: user.username,
             email: user.email,
             password: user.password
