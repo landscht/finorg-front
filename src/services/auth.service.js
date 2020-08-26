@@ -5,6 +5,10 @@ class AuthService {
 
     currentUser = {}
 
+    getCurrentUser() {
+        return JSON.parse(localStorage.getItem('user'))
+    }
+
     login(user) {
         return axios
             .post(ApiService.API_URL + 'api/auth/signin', {

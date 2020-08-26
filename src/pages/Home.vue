@@ -109,7 +109,7 @@ export default {
     dialogOperation: false,
     operation: Object.assign(new Operation(), {
       profile: {
-        profileId: 1
+        profileId: AuthService.getCurrentUser().profile.profileId
       },
       amount: 0,
       description: '',
@@ -139,7 +139,6 @@ export default {
     },
     createOperation() {
       console.log(this.operation);
-      console.log(AuthService.currentUser)
       OperationService.createOperation(this.operation);
       this.operations.push(this.operation);
       if (this.operation.typeOperation === 'DEBIT') {
@@ -149,7 +148,7 @@ export default {
       }
       this.operation = Object.assign(new Operation(), {
         profile: {
-          profileId: 1
+          profileId: AuthService.getCurrentUser().profile.profileId
         },
         amount: 0,
         description: '',
