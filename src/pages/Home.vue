@@ -14,7 +14,7 @@
           end-placeholder="Date de fin"
           :picker-options="pickerOptions">
       </el-date-picker>
-      <p><span class="dix">{{ totalCredit - totalDebit }}</span><span class="decim">.00 €</span></p>
+      <p><span class="dix">{{ precision(totalCredit - totalDebit) }}<span class="decim">€</span></span></p>
       <el-popover
           placement="bottom"
           width="550"
@@ -70,6 +70,7 @@ import OperationService from "../services/operation.service";
 import AuthService from "../services/auth.service";
 import moment from "moment";
 import OperationComponent from "@/components/OperationComponent";
+import UtilsService from "../services/utils.service";
 
 export default {
   name: "Home",
@@ -136,6 +137,9 @@ export default {
           }
         })
       });
+    },
+    precision(number) {
+      return UtilsService.preciseNumber(number);
     },
     createOperation() {
       console.log(this.operation);

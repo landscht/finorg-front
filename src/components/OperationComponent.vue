@@ -5,7 +5,7 @@
       <span>{{dateFormat(operation.date)}}</span>
     </div>
     <div  class="amount">
-      <span>{{operation.typeOperation === 'DEBIT' ? '-' : '+'}} {{operation.amount}} €</span>
+      <span :class="operation.typeOperation === 'CREDIT' ? 'credit' : ''">{{operation.typeOperation === 'DEBIT' ? '-' : '+'}} {{operation.amount}} €</span>
     </div>
   </div>
 </template>
@@ -38,6 +38,11 @@ export default {
   text-align: left;
   align-items: center;
   justify-content: space-between;
+}
+
+
+.credit {
+  color: #13ce66;
 }
 
 
